@@ -20,6 +20,7 @@
 	let hasIconsRight: boolean = false;
 
 	let showButton: boolean = false;
+	let _btnIcon: string = 'fa-eye';
 
 	let _field: HTMLInputElement;
 
@@ -30,7 +31,11 @@
 	};
 
 	const _blur = (e: Event) => {
-		if (type === 'password') showButton = false;
+		if (type === 'password') {
+			showButton = false;
+			_field.type = 'password';
+			_btnIcon = 'fa-eye';
+		}
 	};
 
 	const _button = (e: Event) => {
@@ -40,8 +45,10 @@
 
 		if (target.type === 'password') {
 			target.type = 'text';
+			_btnIcon = 'fa-eye-slash';
 		} else {
 			target.type = 'password';
+			_btnIcon = 'fa-eye';
 		}
 	};
 
@@ -74,7 +81,17 @@
 <div class="field">
 	<label class="label" for="{formName}-{name}">{label}</label>
 	<div class="control {hasIconsLeft ? 'has-icons-left' : ''} {hasIconsRight || showButton ? 'has-icons-right' : ''}">
-		<input bind:this={_field} on:focus={_focus} id="{formName}-{name}" class="input {status}" {name} {type} {placeholder} {value} />
+		<input
+			bind:this={_field}
+			on:focus={_focus}
+			on:blur={_blur}
+			id="{formName}-{name}"
+			class="input {status}"
+			{name}
+			{type}
+			{placeholder}
+			{value}
+		/>
 		{#if iconLeft}
 			<span class="icon is-small is-left">
 				<i class="fas {iconLeft}" />
@@ -86,11 +103,15 @@
 				<i class="fas {iconRight}" />
 			</span>
 		{/if}
+		{#if showButton}
+			<span
+				class="icon is-small is-right"
+				on:mousedown|stopPropagation|preventDefault={_button}
+				style="pointer-events: initial; cursor: pointer"
+			>
+				<i class="fas {_btnIcon}" />
+			</span>
+		{/if}
 	</div>
-	{#if showButton}
-		<div class="icon is-small is-right" on:click={_button} style="z-index: 1000">
-			<i class="fas fa-eye" />
-		</div>
-	{/if}
 	<p class="help {status}">{message}</p>
 </div>

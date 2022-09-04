@@ -7,8 +7,7 @@
 		{
 			name: 'login',
 			label: 'Login',
-			type: 'email',
-			status: 'is-danger'
+			type: 'email'
 		},
 		{
 			name: 'password',
