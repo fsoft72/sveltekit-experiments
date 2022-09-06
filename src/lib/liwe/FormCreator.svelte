@@ -1,6 +1,7 @@
 <script lang="ts">
 	import FormInput from './internals/FormInput.svelte';
 	import FormSelect from './internals/FormSelect.svelte';
+	import FormTextArea from './internals/FormTextArea.svelte';
 
 	export let fields: any[] = [];
 
@@ -36,6 +37,8 @@
 	{#each fields as field}
 		{#if field.type === 'select'}
 			<FormSelect formName={name} {...field} />
+		{:else if field.type === 'textarea'}
+			<FormTextArea formName={name} {...field} />
 		{:else}
 			<FormInput formName={name} {...field} />
 		{/if}

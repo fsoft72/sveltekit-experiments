@@ -24,6 +24,11 @@
 				{ value: '2', label: 'Two' },
 				{ value: '3', label: 'Three' }
 			]
+		},
+		{
+			name: 'textarea',
+			label: 'Text Area',
+			type: 'textarea'
 		}
 	];
 </script>
