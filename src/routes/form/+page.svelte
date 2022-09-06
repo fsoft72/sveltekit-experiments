@@ -13,6 +13,17 @@
 			name: 'password',
 			label: 'Password',
 			type: 'password'
+		},
+		{
+			name: 'sel',
+			label: 'Select',
+			type: 'select',
+			required: true,
+			options: [
+				{ value: '1', label: 'One' },
+				{ value: '2', label: 'Two' },
+				{ value: '3', label: 'Three' }
+			]
 		}
 	];
 </script>

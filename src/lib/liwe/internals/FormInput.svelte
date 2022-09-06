@@ -8,6 +8,7 @@
 	export let name: string = '';
 	export let placeholder: string = '';
 	export let value: string = '';
+	export let required: boolean = false;
 
 	export let status: '' | 'is-success' | 'is-warning' | 'is-danger' = '';
 
@@ -91,6 +92,7 @@
 			{type}
 			{placeholder}
 			{value}
+			{required}
 		/>
 		{#if iconLeft}
 			<span class="icon is-small is-left">

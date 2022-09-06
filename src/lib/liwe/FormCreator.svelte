@@ -1,5 +1,6 @@
 <script lang="ts">
 	import FormInput from './internals/FormInput.svelte';
+	import FormSelect from './internals/FormSelect.svelte';
 
 	export let fields: any[] = [];
 
@@ -33,7 +34,11 @@
 
 <form bind:this={_form} id={name} class="form" on:submit={internalOnSubmit} method="post">
 	{#each fields as field}
-		<FormInput formName={name} {...field} />
+		{#if field.type === 'select'}
+			<FormSelect formName={name} {...field} />
+		{:else}
+			<FormInput formName={name} {...field} />
+		{/if}
 	{/each}
 
 	<div class="field">
