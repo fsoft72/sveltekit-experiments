@@ -1,4 +1,6 @@
 <script lang="ts">
+	import FormCheckbox from './internals/FormCheckbox.svelte';
+
 	import FormInput from './internals/FormInput.svelte';
 	import FormSelect from './internals/FormSelect.svelte';
 	import FormTextArea from './internals/FormTextArea.svelte';
@@ -39,6 +41,8 @@
 			<FormSelect formName={name} {...field} />
 		{:else if field.type === 'textarea'}
 			<FormTextArea formName={name} {...field} />
+		{:else if field.type === 'checkbox'}
+			<FormCheckbox formName={name} {...field} />
 		{:else}
 			<FormInput formName={name} {...field} />
 		{/if}

@@ -7,8 +7,7 @@
 	export let name: string = '';
 	export let value: string = '';
 	export let required: boolean = false;
-
-	export let options: Array<{ value: string; label: string }> = [];
+	export let checked: boolean = false;
 
 	export let status: '' | 'is-success' | 'is-warning' | 'is-danger' = '';
 
@@ -16,13 +15,9 @@
 </script>
 
 <div class="field">
-	<label class="label" for="{formName}-{name}">{label}</label>
-	<div class="select">
-		<select id="{formName}-{name}" {name} {value} {required}>
-			{#each options as option}
-				<option value={option.value}>{option.label}</option>
-			{/each}
-		</select>
-	</div>
+	<label class="checkbox" style="user-select: none;" for="{formName}-{name}">
+		<input id="{formName}-{name}" type="checkbox" {value} {checked} {required} />
+		&nbsp; {label}
+	</label>
 	<p class="help {status}">{message}</p>
 </div>

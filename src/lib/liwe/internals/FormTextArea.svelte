@@ -15,6 +15,6 @@
 
 <div class="field">
 	<label class="label" for="{formName}-{name}">{label}</label>
-	<textarea class="textarea" {name} {required}>{value}</textarea>
+	<textarea id="{formName}-{name}" class="textarea" {name} {required}>{value}</textarea>
 	<p class="help {status}">{message}</p>
 </div>

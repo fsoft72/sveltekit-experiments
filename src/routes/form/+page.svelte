@@ -29,6 +29,13 @@
 			name: 'textarea',
 			label: 'Text Area',
 			type: 'textarea'
+		},
+		{
+			name: 'check',
+			label: 'Check me if you can',
+			type: 'checkbox',
+			value: 1,
+			checked: true
 		}
 	];
 </script>
